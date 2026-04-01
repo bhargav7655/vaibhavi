@@ -12,20 +12,21 @@ public class Comment {
 
     private String text;
 
-    // Constructors
+    private int likes = 0;
+
+    // ✅ NEW RELATION WITH USER
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Comment() {}
 
     public Comment(String text) {
         this.text = text;
     }
 
-    // Getters & Setters
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getText() {
@@ -36,9 +37,20 @@ public class Comment {
         this.text = text;
     }
 
-    // For debugging
-    @Override
-    public String toString() {
-        return "Comment{id=" + id + ", text='" + text + "'}";
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    // ✅ NEW GETTER/SETTER
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
