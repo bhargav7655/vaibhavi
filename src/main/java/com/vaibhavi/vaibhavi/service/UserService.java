@@ -13,7 +13,7 @@ public class UserService {
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder(); // encoder
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     public User register(User user) {
